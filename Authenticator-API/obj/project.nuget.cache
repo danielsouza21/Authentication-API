@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Fl7kFrRST7fxlNvGRynU6YVZMc1XHmwqfrDLGWYdx4InFRUqkV6hmg0cunMxWatdAa2YrzztrHXS9BIHgihwzw==",
+  "dgSpecHash": "PQrq/e+q1W6kmIP/3NnWVSQaIl9S/I2oqXJbHQ+G0x2lpod04UdodIFTFqedn2MhB/DQFR6OHPSd+244+vnrlw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\Documents\\GitHub\\Projetos\\Web\\Authenticator-API\\Authenticator-API.csproj",
+  "projectFilePath": "C:\\Users\\danie\\Documents\\GitHub\\Projetos\\Web\\Authenticator-API\\Authenticator-API\\Authenticator-API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danie\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

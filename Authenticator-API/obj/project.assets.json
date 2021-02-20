@@ -6092,11 +6092,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danie\\Documents\\GitHub\\Projetos\\Web\\Authenticator-API\\Authenticator-API.csproj",
+      "projectUniqueName": "C:\\Users\\danie\\Documents\\GitHub\\Projetos\\Web\\Authenticator-API\\Authenticator-API\\Authenticator-API.csproj",
       "projectName": "Authenticator-API",
-      "projectPath": "C:\\Users\\danie\\Documents\\GitHub\\Projetos\\Web\\Authenticator-API\\Authenticator-API.csproj",
+      "projectPath": "C:\\Users\\danie\\Documents\\GitHub\\Projetos\\Web\\Authenticator-API\\Authenticator-API\\Authenticator-API.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danie\\Documents\\GitHub\\Projetos\\Web\\Authenticator-API\\obj\\",
+      "outputPath": "C:\\Users\\danie\\Documents\\GitHub\\Projetos\\Web\\Authenticator-API\\Authenticator-API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
