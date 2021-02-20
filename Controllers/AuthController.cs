@@ -1,21 +1,22 @@
-﻿using Authenticator_API.Models;
-using Authenticator_API.Repositories;
+﻿using Authenticator_API.Data;
+using Authenticator_API.Models.HelperModels;
 using Authenticator_API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Authenticator_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Auth : ControllerBase
+    public class AuthController : ControllerBase
     {
+        private readonly IUserAuthenticate _userAuthenticate;
+
+        public AuthController(IUserAuthenticate userAuthenticate)
+        {
+            _userAuthenticate = userAuthenticate;
+        }
+
         // GET: api/<Auth>
         [HttpGet]
         [Authorize]
@@ -27,16 +28,14 @@ namespace Authenticator_API.Controllers
         // POST api/<Auth>/login
         [HttpPost]
         [Route("login")]
-        public dynamic Authenticate([FromBody] User model)
+        public dynamic Authenticate([FromBody] AuthenticateUser model)
         {
-            var user = UserRepository.Get(model.Username, model.Password);
+            var user = _userAuthenticate.Authenticate(model.Username, model.Password);
 
             if (user == null)
                 return NotFound(new { message = "Usuário ou senha inválidos" });
 
             var token = TokenService.GenerateToken(user);
-
-            user.Password = "";
 
             return new
             {
