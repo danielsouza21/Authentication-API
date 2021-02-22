@@ -35,11 +35,11 @@ namespace Authenticator_API.Data
             UsersList.Add(user1);
 
             passwordEncrypted = HashServices.CreatePasswordEncrypted("senha1");
-            var user2 = new User { FirstName = "Daniel", LastName = "Souza", Username = "danielsz21", PasswordHash = passwordEncrypted.passwordHash, PasswordSalt = passwordEncrypted.passwordSalt };
+            var user2 = new User { FirstName = "Izabela", LastName = "Souza", Username = "izaoliveira", PasswordHash = passwordEncrypted.passwordHash, PasswordSalt = passwordEncrypted.passwordSalt };
             UsersList.Add(user2);
 
-            passwordEncrypted = HashServices.CreatePasswordEncrypted("senha1");
-            var user3 = new User { FirstName = "Daniel", LastName = "Souza", Username = "danielsz21", PasswordHash = passwordEncrypted.passwordHash, PasswordSalt = passwordEncrypted.passwordSalt };
+            passwordEncrypted = HashServices.CreatePasswordEncrypted("senha2");
+            var user3 = new User { FirstName = "Carlos", LastName = "Oliveira", Username = "carlos123", PasswordHash = passwordEncrypted.passwordHash, PasswordSalt = passwordEncrypted.passwordSalt };
             UsersList.Add(user3);
 
             return UsersList;
