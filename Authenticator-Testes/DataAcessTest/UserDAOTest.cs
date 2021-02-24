@@ -27,11 +27,35 @@ namespace Authenticator_Testes.DataAcessTest
                 var UserDAO = new UserDAO(context);
                 var user = CreateUserModel();
 
-                UserDAO.Inserir(user);
-                var Users = (await UserDAO.Buscar()).ToList();
+                var seedList = DbTestInitializer.GetSeedList();
 
-                Users.Should().NotBeEmpty().And.Contain(user);
+                UserDAO.Inserir(user);
+                var Users = (await UserDAO.BuscarTodos()).ToList();
+
+                Users.Should().NotBeEmpty().And.Contain(user).And.HaveCountGreaterOrEqualTo(seedList.Count);
             }
+        }
+
+        [Fact]
+        public async Task CouldGetUserIdAsync()
+        {
+            using (var context = GetContextSetup())
+            {
+                var UserDAO = new UserDAO(context);
+                var UserDb = (await UserDAO.BuscarTodos()).ToList().FirstOrDefault();
+
+                var UserTest = (await UserDAO.BuscarPorId(UserDb.Id));
+
+                UserTest.Should().Be(UserDb);
+            }
+        }
+
+        // Private methods
+
+        private UserContext GetContextSetup()
+        {
+            var contextSetup = new SetupTestDb();
+            return contextSetup.GetContext();
         }
 
         private User CreateUserModel()
@@ -46,14 +70,6 @@ namespace Authenticator_Testes.DataAcessTest
                 .Create();
 
             return user;
-        }
-
-        // Private methods
-
-        private UserContext GetContextSetup()
-        {
-            var contextSetup = new SetupTestDb();
-            return contextSetup.GetContext();
         }
     }
 }

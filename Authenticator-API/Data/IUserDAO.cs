@@ -7,7 +7,7 @@ namespace Authenticator_API.Data
     public interface IUserDAO
     {
         public Task<User> BuscarPorId(int id);
-        Task<IEnumerable<User>> Buscar();
+        Task<IEnumerable<User>> BuscarTodos();
         public void Inserir(User user);
     }
 }

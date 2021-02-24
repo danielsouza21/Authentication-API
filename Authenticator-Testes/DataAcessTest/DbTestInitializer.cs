@@ -7,16 +7,18 @@ namespace Authenticator_API.Data
 {
     public class DbTestInitializer
     {
+        public static IList<User> _usersList;
+
         public static void Initialize(UserContext context)
         {
             context.Database.EnsureCreated();
+
+            var UsersList = CreateUsers();
 
             if (context.Users.Any())
             {
                 return;   // DB has been seeded
             }
-
-            var UsersList = CreateUsers();
 
             foreach (User user in UsersList)
             {
@@ -42,7 +44,14 @@ namespace Authenticator_API.Data
             var user3 = new User { FirstName = "Carlos", LastName = "Oliveira", Username = "carlos123", PasswordHash = passwordEncrypted.passwordHash, PasswordSalt = passwordEncrypted.passwordSalt };
             UsersList.Add(user3);
 
+            _usersList = UsersList;
+
             return UsersList;
+        }
+
+        public static IList<User> GetSeedList()
+        {
+            return _usersList;
         }
     }
 }

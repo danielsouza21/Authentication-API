@@ -14,7 +14,7 @@ namespace Authenticator_API.Data.EntityFramework
             _context = context;
         }
 
-        public async Task<IEnumerable<User>> Buscar()
+        public async Task<IEnumerable<User>> BuscarTodos()
         {
             return await _context.Users.ToListAsync();
         }
