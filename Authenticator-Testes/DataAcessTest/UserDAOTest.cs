@@ -32,7 +32,7 @@ namespace Authenticator_Testes.DataAcessTest
                 UserDAO.Inserir(user);
                 var Users = (await UserDAO.BuscarTodos()).ToList();
 
-                Users.Should().NotBeEmpty().And.Contain(user).And.HaveCountGreaterOrEqualTo(seedList.Count);
+                Users.Should().NotBeEmpty().And.Contain(user).And.HaveCountGreaterThan(seedList.Count);
             }
         }
 

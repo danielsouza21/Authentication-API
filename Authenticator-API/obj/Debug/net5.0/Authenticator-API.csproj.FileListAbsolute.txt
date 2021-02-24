@@ -115,3 +115,4 @@ C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-API
 C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-API\obj\Debug\net5.0\ref\Authenticator-API.dll
 C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-API\obj\Debug\net5.0\Authenticator-API.pdb
 C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-API\obj\Debug\net5.0\Authenticator-API.genruntimeconfig.cache
+C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-API\obj\Debug\net5.0\Authenticator-API.csprojAssemblyReference.cache

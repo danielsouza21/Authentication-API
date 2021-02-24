@@ -2,7 +2,10 @@
 using Authenticator_API.Models.HelperModels;
 using Authenticator_API.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace Authenticator_API.Controllers
 {
@@ -26,22 +29,40 @@ namespace Authenticator_API.Controllers
         }
 
         // POST api/<Auth>/login
+        //[HttpPost]
+        //[Route("login")]
+        //public dynamic Authenticate([FromBody] AuthenticateUser model)
+        //{
+
+        //}
+
         [HttpPost]
-        [Route("login")]
-        public dynamic Authenticate([FromBody] AuthenticateUser model)
+        [Route("register")]
+        public async Task<dynamic> RegisterUserAsync([FromBody] RegisterUser model)
         {
-            var user = _userAuthenticate.Authenticate(model.Username, model.Password);
-
-            if (user == null)
-                return NotFound(new { message = "Usuário ou senha inválidos" });
-
-            var token = TokenService.GenerateToken(user);
-
-            return new
+            try
             {
-                user = user,
-                token = token
-            };
+                var user = await _userAuthenticate.AuthenticateAsync(model);
+
+                if (user == null)
+                    return NotFound(new { message = "Usuário ou senha inválidos" });
+
+                var token = TokenService.GenerateToken(user);
+
+                return new
+                {
+                    user = user,
+                    token = token
+                };
+            }
+            catch(AppException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch(Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
         }
     }
 }

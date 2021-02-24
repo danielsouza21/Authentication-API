@@ -1,4 +1,4 @@
-﻿using Authenticator_API.Models;
+﻿using Authenticator_API.Models.HelperModels;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -9,7 +9,7 @@ namespace Authenticator_API.Services
 {
     public class TokenService
     {
-        public static string GenerateToken(User user)
+        public static string GenerateToken(UserSensitive user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Settings.Secret);

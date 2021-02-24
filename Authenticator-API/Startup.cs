@@ -29,11 +29,11 @@ namespace Authenticator_API
 
             services.AddDbContext<UserContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")),
-    contextLifetime: ServiceLifetime.Transient,
-    optionsLifetime: ServiceLifetime.Singleton);
+                    contextLifetime: ServiceLifetime.Transient,
+                    optionsLifetime: ServiceLifetime.Singleton);
 
             services.AddSingleton<IUserDAO, UserDAO>();
-            services.AddSingleton<IUserAuthenticate, UserAuthenticateService>();
+            services.AddTransient<IUserAuthenticate, UserAuthenticateService>();
 
             services.AddAuthentication(x =>
             {
