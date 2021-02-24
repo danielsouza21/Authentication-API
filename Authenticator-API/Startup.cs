@@ -28,7 +28,9 @@ namespace Authenticator_API
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
 
             services.AddDbContext<UserContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")),
+    contextLifetime: ServiceLifetime.Transient,
+    optionsLifetime: ServiceLifetime.Singleton);
 
             services.AddSingleton<IUserDAO, UserDAO>();
             services.AddSingleton<IUserAuthenticate, UserAuthenticateService>();
