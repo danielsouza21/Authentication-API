@@ -57,10 +57,5 @@ namespace Authenticator_API.Services
 
             return new UserSensitive(user);
         }
-
-        public Task<UserSensitive> RegisterAsync(AuthenticateUser model)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

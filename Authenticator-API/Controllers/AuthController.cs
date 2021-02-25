@@ -24,9 +24,12 @@ namespace Authenticator_API.Controllers
 
         [HttpGet]
         [Authorize]
-        public string GetUserAuthenticated()
+        public dynamic GetUserAuthenticated()
         {
-            return $"User authenticated - Username '{ClaimServices.GetValueFromClaimType("NameIdentifier", User)}', Id = '{ClaimServices.GetValueFromClaimType("SerialNumber", User)}'";
+            var username = ClaimServices.GetUsernameFromClaim(User);
+            var id = ClaimServices.GetIdFromClaim(User);
+
+            return Ok(new { message = $"User authenticated", username = username, id = id, status = $"Success" });
         }
 
         [HttpPost]

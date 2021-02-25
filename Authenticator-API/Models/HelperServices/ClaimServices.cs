@@ -8,13 +8,18 @@ namespace Authenticator_API.Models.HelperServices
 {
     public class ClaimServices
     {
-        public static string GetValueFromClaimType(string type, ClaimsPrincipal User)
+        public static int GetIdFromClaim(ClaimsPrincipal User)
         {
-            type = type.ToLower();
+            var value = User.FindAll(c => c.Type == ClaimTypes.SerialNumber)
+                   .Select(c => c.Value).SingleOrDefault();
 
-            var basetype = "http://schemas.microsoft.com/ws/2008/06/identity/claims/";
+            return Int32.Parse(value);
+        }
 
-            var value = User.FindFirst(basetype + type).Value;
+        public static string GetUsernameFromClaim(ClaimsPrincipal User)
+        {
+            var value = User.FindAll(c => c.Type == ClaimTypes.NameIdentifier)
+                   .Select(c => c.Value).SingleOrDefault();
 
             return value;
         }

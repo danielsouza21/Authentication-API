@@ -42,9 +42,23 @@ namespace Authenticator_Testes.DataAcessTest
             using (var context = GetContextSetup())
             {
                 var UserDAO = new UserDAO(context);
-                var UserDb = (await UserDAO.BuscarTodos()).ToList().FirstOrDefault();
+                var UserDb = (await UserDAO.BuscarTodos()).ToList().First();
 
                 var UserTest = (await UserDAO.BuscarPorId(UserDb.Id));
+
+                UserTest.Should().Be(UserDb);
+            }
+        }
+
+        [Fact]
+        public async Task CouldGetUserUsernameAsync()
+        {
+            using (var context = GetContextSetup())
+            {
+                var UserDAO = new UserDAO(context);
+                var UserDb = (await UserDAO.BuscarTodos()).ToList().First();
+
+                var UserTest = (await UserDAO.BuscarPorUsername(UserDb.Username));
 
                 UserTest.Should().Be(UserDb);
             }
