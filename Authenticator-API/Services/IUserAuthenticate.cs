@@ -6,6 +6,7 @@ namespace Authenticator_API.Services
 {
     public interface IUserAuthenticate
     {
-        public Task<UserSensitive> AuthenticateAsync(RegisterUser model);
+        public Task<UserSensitive> RegisterAsync(RegisterUser model);
+        public Task<UserSensitive> AuthenticateAsync(AuthenticateUser model);
     }
 }

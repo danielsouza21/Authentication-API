@@ -8,6 +8,7 @@ namespace Authenticator_API.Data
     {
         public Task<User> BuscarPorId(int id);
         Task<IEnumerable<User>> BuscarTodos();
+        public Task<User> BuscarPorUsername(string Username);
         public void Inserir(User user);
     }
 }

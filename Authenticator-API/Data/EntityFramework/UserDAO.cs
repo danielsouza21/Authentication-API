@@ -22,7 +22,13 @@ namespace Authenticator_API.Data.EntityFramework
         public async Task<User> BuscarPorId(int id)
         {
             return await _context.Users
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstAsync(m => m.Id == id);
+        }
+
+        public async Task<User> BuscarPorUsername(string Username)
+        {
+            return await _context.Users
+                .FirstAsync(m => m.Username == Username);
         }
 
         public void Inserir(User user)

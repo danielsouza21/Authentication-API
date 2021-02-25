@@ -1,10 +1,12 @@
-﻿using Authenticator_API.Data;
-using Authenticator_API.Models.HelperModels;
+﻿using Authenticator_API.Models.HelperModels;
+using Authenticator_API.Models.HelperServices;
 using Authenticator_API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Authenticator_API.Controllers
@@ -20,46 +22,64 @@ namespace Authenticator_API.Controllers
             _userAuthenticate = userAuthenticate;
         }
 
-        // GET: api/<Auth>
         [HttpGet]
         [Authorize]
         public string GetUserAuthenticated()
         {
-            return $"User authenticated - '{User.Identity.Name}'";
+            return $"User authenticated - Username '{ClaimServices.GetValueFromClaimType("NameIdentifier", User)}', Id = '{ClaimServices.GetValueFromClaimType("SerialNumber", User)}'";
         }
 
-        // POST api/<Auth>/login
-        //[HttpPost]
-        //[Route("login")]
-        //public dynamic Authenticate([FromBody] AuthenticateUser model)
-        //{
-
-        //}
-
         [HttpPost]
-        [Route("register")]
-        public async Task<dynamic> RegisterUserAsync([FromBody] RegisterUser model)
+        [Route("login")]
+        [AllowAnonymous]
+        public async Task<dynamic> AuthenticateAsync([FromBody] AuthenticateUser model)
         {
             try
             {
                 var user = await _userAuthenticate.AuthenticateAsync(model);
 
                 if (user == null)
-                    return NotFound(new { message = "Usuário ou senha inválidos" });
+                    return BadRequest(new { message = "Username or password is incorrect" });
 
                 var token = TokenService.GenerateToken(user);
 
-                return new
+                return Ok(new
                 {
                     user = user,
                     token = token
-                };
+                });
             }
-            catch(AppException e)
+            catch (ArgumentException arg)
+            {
+                return BadRequest(arg.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("register")]
+        [AllowAnonymous]
+        public async Task<dynamic> RegisterUserAsync([FromBody] RegisterUser model)
+        {
+            try
+            {
+                var user = await _userAuthenticate.RegisterAsync(model);
+                var token = TokenService.GenerateToken(user);
+
+                return Ok(new
+                {
+                    user = user,
+                    token = token
+                });
+            }
+            catch (AppException e)
             {
                 return BadRequest(e.Message);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
