@@ -20,7 +20,7 @@ namespace Authenticator_Testes.DataAcessTest
         }
 
         [Fact]
-        public async Task CouldSetAndGetUsersAsync()
+        public async Task ShouldSetAndGetUsersAsync()
         {
             using (var context = GetContextSetup())
             {
@@ -37,7 +37,7 @@ namespace Authenticator_Testes.DataAcessTest
         }
 
         [Fact]
-        public async Task CouldGetUserIdAsync()
+        public async Task ShouldGetUserIdAsync()
         {
             using (var context = GetContextSetup())
             {

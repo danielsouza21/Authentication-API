@@ -141,3 +141,5 @@ C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-Tes
 C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-Testes\bin\Debug\netcoreapp5.0\AutoFixture.dll
 C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-Testes\bin\Debug\netcoreapp5.0\Fare.dll
 C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-Testes\bin\Debug\netcoreapp5.0\FluentAssertions.dll
+C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-Testes\bin\Debug\netcoreapp5.0\Castle.Core.dll
+C:\Users\danie\Documents\GitHub\Projetos\Web\Authenticator-API\Authenticator-Testes\bin\Debug\netcoreapp5.0\Moq.dll

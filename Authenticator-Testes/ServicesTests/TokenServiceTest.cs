@@ -25,7 +25,7 @@ namespace Authenticator_Testes.ServicesTests
         [Fact]
         public void GenerateToken_GiveAValidUser_ShouldReturnAValidToken()
         {
-            var userFixture = _fixture.Create<User>();
+            var userFixture = _fixture.Create<UserSensitive>();
 
             var token = TokenService.GenerateToken(userFixture);
             var validated = ValidateToken(token);
