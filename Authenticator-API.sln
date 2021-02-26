@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authenticator-API", "Authenticator-API.csproj", "{9148BD01-6853-4BEE-B503-13210A172C07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authenticator-API", "Authenticator-API\Authenticator-API.csproj", "{30142CF9-9A80-4295-99D9-AC768ADAB657}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authenticator-Testes", "Authenticator-Testes\Authenticator-Testes.csproj", "{3F179582-1FAA-45EB-98BE-2C5E2B065D78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9148BD01-6853-4BEE-B503-13210A172C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9148BD01-6853-4BEE-B503-13210A172C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9148BD01-6853-4BEE-B503-13210A172C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9148BD01-6853-4BEE-B503-13210A172C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30142CF9-9A80-4295-99D9-AC768ADAB657}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30142CF9-9A80-4295-99D9-AC768ADAB657}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30142CF9-9A80-4295-99D9-AC768ADAB657}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30142CF9-9A80-4295-99D9-AC768ADAB657}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F179582-1FAA-45EB-98BE-2C5E2B065D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F179582-1FAA-45EB-98BE-2C5E2B065D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F179582-1FAA-45EB-98BE-2C5E2B065D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F179582-1FAA-45EB-98BE-2C5E2B065D78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
